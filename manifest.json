@@ -1,0 +1,17 @@
+{
+  "name": "CLR BPCL Portal",
+  "short_name": "CLR Portal",
+  "description": "CLR BPCL Retail Outlets Directory and Analytics Dashboard",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#0e1e38",
+  "theme_color": "#0054A6",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
