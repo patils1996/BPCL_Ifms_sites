@@ -1000,7 +1000,216 @@ tbody tr:hover{background:var(--surface2)}
 @media(max-width:480px){.kpi-grid{grid-template-columns:1fr}}
 #mob-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:400}
 #mob-overlay.show{display:block}
+
+/* ── LOOK & FEEL PHOTO GALLERY TAB ── */
+.look-info-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  background: var(--card-bg);
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  padding: 16px 24px;
+  margin-bottom: 24px;
+}
+.look-info-text h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--primary);
+}
+.look-info-text p {
+  font-size: 12px;
+  color: var(--text3);
+  line-height: 1.5;
+}
+.look-grid-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.look-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+  gap: 20px;
+}
+.look-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  transition: transform 0.2s var(--ease), border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.look-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary-light);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+.look-photo-container {
+  aspect-ratio: 16/10;
+  border-radius: 8px;
+  background: var(--bg);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+}
+.look-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.look-no-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--text3);
+  text-align: center;
+  padding: 12px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.02);
+}
+.look-no-photo p {
+  font-size: 11px;
+  margin: 0;
+}
+.look-no-photo svg {
+  color: var(--text3);
+  opacity: 0.5;
+}
+.look-photo-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 20px;
+  z-index: 10;
+}
+.look-photo-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s;
+}
+.look-photo-nav:hover {
+  background: rgba(0,0,0,0.8);
+}
+.look-photo-nav svg {
+  width: 14px;
+  height: 14px;
+}
+.look-photo-nav.prev {
+  left: 8px;
+}
+.look-photo-nav.next {
+  right: 8px;
+}
+.look-card-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+.look-card-meta {
+  font-size: 11px;
+  color: var(--text3);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.look-card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+.look-card-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  font-size: 11.5px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-decoration: none;
+  border: none;
+}
+.look-card-btn.open {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.look-card-btn.open:hover {
+  background: var(--border);
+}
+.look-card-btn.trend {
+  background: rgba(0, 84, 166, 0.08);
+  color: var(--primary);
+}
+.look-card-btn.trend:hover {
+  background: var(--primary);
+  color: #fff;
+}
+.look-card-type-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  z-index: 15;
+}
+@media(max-width:768px){
+  .look-info-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+  }
+  .look-info-banner a {
+    width: 100%;
+    justify-content: center;
+  }
+}
 </style>
+<script src="photos_data.js"></script>
 </head>
 <body>
 
@@ -1026,6 +1235,7 @@ tbody tr:hover{background:var(--surface2)}
     <button class="nav-btn" data-tab="analytics"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span>Analytics</span></button>
     <button class="nav-btn" data-tab="trends"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg><span>Sales Trends</span></button>
     <button class="nav-btn" data-tab="dir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg><span>Directory</span></button>
+    <button class="nav-btn" data-tab="look"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Look & Feel</span></button>
   </nav>
   <div class="sb-footer">
     <button class="sb-footer-btn" id="theme-btn"><svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><span id="theme-txt">Dark Mode</span></button>
@@ -1155,6 +1365,20 @@ tbody tr:hover{background:var(--surface2)}
         <div class="tbl-head"><h2>Outlets Directory</h2><button class="btn-export" id="btn-export"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Export CSV</button></div>
         <div class="tbl-scroll"><table><thead><tr><th>#</th><th>CC / BL</th><th>Outlet Name</th><th>District</th><th>Avg Sales</th><th>MST Rep</th><th>SO Officer</th><th>Type</th><th>Contact</th><th>Actions</th></tr></thead><tbody id="tbl-body"></tbody></table></div>
         <div class="tbl-footer"><span id="pg-info">–</span><div class="pg-btns" id="pg-btns"></div></div>
+      </div>
+    </section>
+
+    <section class="panel" id="p-look">
+      <div class="look-info-banner">
+        <div class="look-info-text">
+          <h3>Local Folder Synchronization</h3>
+          <p>This page matches photos from your local Google Drive directory (<code>G:\My Drive\TL-PATIL- 2026\IFMS\Sites Details\</code>). To update newly added photos, run the <code>sync_photos.ps1</code> script in the project directory.</p>
+        </div>
+        <a class="btn btn-secondary" href="file:///G:/My Drive/TL-PATIL- 2026/IFMS/Sites Details/" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:var(--card-bg);border:1px solid var(--border);border-radius:6px;color:var(--text);text-decoration:none;font-weight:600;font-size:12.5px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>Open Sites Details Root</a>
+      </div>
+      <div class="look-grid-wrapper">
+        <div class="look-grid" id="look-grid"></div>
+        <div class="tbl-footer" style="margin-top:16px"><span id="look-pg-info">–</span><div class="pg-btns" id="look-pg-btns"></div></div>
       </div>
     </section>
   </div>
@@ -7328,7 +7552,7 @@ const dealersData = [
 <script>
 // ── STATE ──
 const MONTH_LABELS=["Jun-25","Jul-25","Aug-25","Sep-25","Oct-25","Nov-25","Dec-25","Jan-26","Feb-26","Mar-26","Apr-26","May-26"];
-const S={all:dealersData,filtered:[],page:1,pageSize:15,tab:'dash',map:null,markerLayer:null,markerMap:new Map(),charts:{},trendPage:1,trendPageSize:20,sparkCharts:[]};
+const S={all:dealersData,filtered:[],page:1,pageSize:15,tab:'dash',map:null,markerLayer:null,markerMap:new Map(),charts:{},trendPage:1,trendPageSize:20,sparkCharts:[],lookPage:1,lookPageSize:12};
 
 function avgSales(r){
   if(!r.sales12||!r.sales12.length)return null;
@@ -7409,7 +7633,8 @@ const TAB_META={
   map:{title:'Interactive Map',sub:'Geographic view of all retail outlets'},
   analytics:{title:'Analytics',sub:'District, type, and personnel breakdowns'},
   trends:{title:'Sales Trends',sub:'Last 12 months MS+HSD volume by outlet'},
-  dir:{title:'Directory',sub:'Full searchable database with CSV export'}
+  dir:{title:'Directory',sub:'Full searchable database with CSV export'},
+  look:{title:'Look & Feel',sub:'Photos and directory folder access by site'}
 };
 function setupTabs(){
   document.querySelectorAll('.nav-btn').forEach(btn=>{
@@ -7425,6 +7650,7 @@ function switchTab(tab){
   document.getElementById('hd-sub').textContent=m.sub;
   if(tab==='map'){if(!S.map)initMap();else setTimeout(()=>S.map.invalidateSize(),60)}
   if(tab==='trends'){renderTrends()}
+  if(tab==='look'){renderLook()}
 }
 
 // FILTERS
@@ -7438,12 +7664,12 @@ function fill(id,set){
   [...set].sort().forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;sel.appendChild(o)});
 }
 function setupEvents(){
-  ['f-dist','f-type','f-so','f-mst','f-sales'].forEach(id=>document.getElementById(id).addEventListener('change',()=>{S.page=1;S.trendPage=1;applyFilters();if(S.tab==='trends')renderTrends()}));
+  ['f-dist','f-type','f-so','f-mst','f-sales'].forEach(id=>document.getElementById(id).addEventListener('change',()=>{S.page=1;S.trendPage=1;S.lookPage=1;applyFilters();if(S.tab==='trends')renderTrends();if(S.tab==='look')renderLook()}));
   let st;
-  document.getElementById('srch').addEventListener('input',()=>{clearTimeout(st);st=setTimeout(()=>{S.page=1;S.trendPage=1;applyFilters();if(S.tab==='trends')renderTrends()},250)});
+  document.getElementById('srch').addEventListener('input',()=>{clearTimeout(st);st=setTimeout(()=>{S.page=1;S.trendPage=1;S.lookPage=1;applyFilters();if(S.tab==='trends')renderTrends();if(S.tab==='look')renderLook()},250)});
   document.getElementById('btn-reset').addEventListener('click',()=>{
     ['f-dist','f-type','f-so','f-mst','f-sales'].forEach(id=>document.getElementById(id).value='');
-    document.getElementById('srch').value='';S.page=1;S.trendPage=1;applyFilters();if(S.tab==='trends')renderTrends();
+    document.getElementById('srch').value='';S.page=1;S.trendPage=1;S.lookPage=1;applyFilters();if(S.tab==='trends')renderTrends();if(S.tab==='look')renderLook();
   });
   document.getElementById('btn-export').addEventListener('click',exportCSV);
 }
@@ -7770,6 +7996,100 @@ window.openRoModal=function(slNo){
 function closeRoModal(){
   document.getElementById('ro-modal-overlay').classList.remove('show');
 }
+
+// ── LOOK & FEEL PHOTO GALLERY TAB ──
+function renderLook(){
+  const grid=document.getElementById('look-grid'),total=S.filtered.length;
+  if(!total){
+    grid.innerHTML=`<div style="grid-column:1/-1;padding:40px;text-align:center;color:var(--text3)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32" style="opacity:0.5;margin-bottom:8px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><p style="font-weight:700">No matching outlets</p><p style="font-size:11px;margin-top:4px">Adjust filters or search term</p></div>`;
+    document.getElementById('look-pg-info').textContent='No results';document.getElementById('look-pg-btns').innerHTML='';return;
+  }
+  const pages=Math.ceil(total/S.lookPageSize);
+  if(S.lookPage>pages)S.lookPage=pages;if(S.lookPage<1)S.lookPage=1;
+  const start=(S.lookPage-1)*S.lookPageSize,end=Math.min(start+S.lookPageSize,total);
+  
+  const bmap={CC:'b-cc',DC:'b-dc',COCO:'b-coco'};
+  const cardsHtml=S.filtered.slice(start,end).map(r=>{
+    const type=r.type.toUpperCase();
+    const pInfo = typeof photosData !== 'undefined' ? photosData[r.ccNumber] : null;
+    const hasPhotos = pInfo && pInfo.photos && pInfo.photos.length > 0;
+    
+    let photoBlock = '';
+    if (hasPhotos) {
+      photoBlock = `
+        <button class="look-photo-nav prev" onclick="changeCardPhoto('${r.ccNumber}', -1, event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <img id="img-${r.ccNumber}" class="look-photo" src="file:///${pInfo.folderPath}/${pInfo.photos[0]}" data-active-idx="0" alt="Site Photo" />
+        <button class="look-photo-nav next" onclick="changeCardPhoto('${r.ccNumber}', 1, event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
+        <span class="look-photo-badge" id="badge-${r.ccNumber}">1 of ${pInfo.photos.length}</span>
+      `;
+    } else {
+      photoBlock = `
+        <div class="look-no-photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <p>No photos in folder</p>
+        </div>
+      `;
+    }
+    
+    const folderPath = pInfo ? `file:///${pInfo.folderPath}` : `file:///G:/My Drive/TL-PATIL- 2026/IFMS/Sites Details/${r.ccNumber}_${r.outletName.replace(/[^A-Za-z0-9 ]/g,'').trim().replace(/\s+/g,'_').toUpperCase()}`;
+    
+    return `<div class="look-card">
+      <span class="badge ${bmap[type]||'b-cc'} look-card-type-badge">${type}</span>
+      <div class="look-photo-container">
+        ${photoBlock}
+      </div>
+      <h4 class="look-card-title" title="${r.outletName}">${r.outletName}</h4>
+      <div class="look-card-meta">
+        <span><strong>CC:</strong> ${r.ccNumber} ${r.blCode ? `· <strong>BL:</strong> ${r.blCode}` : ''}</span>
+        <span><strong>Location:</strong> ${r.location}</span>
+        <span><strong>District:</strong> ${r.district}</span>
+        <span><strong>SO/MST:</strong> ${r.soName} / ${r.mstName}</span>
+      </div>
+      <div class="look-card-actions">
+        <a class="look-card-btn open" href="${folderPath}" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>Open Folder
+        </a>
+        <button class="look-card-btn trend" onclick="openRoModal(${r.slNo})">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>Trends
+        </button>
+      </div>
+    </div>`;
+  }).join('');
+  
+  grid.innerHTML=cardsHtml;
+  document.getElementById('look-pg-info').textContent=`Showing ${start+1}–${end} of ${total} entries`;
+  renderLookPagination(pages);
+}
+
+function renderLookPagination(total){
+  const c=document.getElementById('look-pg-btns');if(total<=1){c.innerHTML='';return}
+  const cur=S.lookPage,btn=(lbl,pg,on=false,dis=false)=>`<button class="pg-btn${on?' on':''}" ${dis?'disabled':''} data-pg="${pg}">${lbl}</button>`;
+  const parts=[];parts.push(btn('‹',cur-1,false,cur===1));
+  let s=Math.max(1,cur-2),e=Math.min(total,cur+2);
+  if(s>1){parts.push(btn('1',1));if(s>2)parts.push('<span class="pg-dots">…</span>')}
+  for(let i=s;i<=e;i++)parts.push(btn(i,i,i===cur));
+  if(e<total){if(e<total-1)parts.push('<span class="pg-dots">…</span>');parts.push(btn(total,total))}
+  parts.push(btn('›',cur+1,false,cur===total));
+  c.innerHTML=parts.join('');
+  c.querySelectorAll('.pg-btn:not(:disabled)').forEach(b=>b.addEventListener('click',()=>{S.lookPage=parseInt(b.dataset.pg);renderLook()}));
+}
+
+window.changeCardPhoto = function(cc, offset, ev) {
+  if (ev) ev.stopPropagation();
+  const pInfo = typeof photosData !== 'undefined' ? photosData[cc] : null;
+  if (!pInfo || !pInfo.photos || !pInfo.photos.length) return;
+  
+  const img = document.getElementById(`img-${cc}`);
+  const badge = document.getElementById(`badge-${cc}`);
+  if (!img || !badge) return;
+  
+  let idx = parseInt(img.dataset.activeIdx || 0);
+  idx = (idx + offset + pInfo.photos.length) % pInfo.photos.length;
+  
+  img.dataset.activeIdx = idx;
+  img.src = `file:///${pInfo.folderPath}/${pInfo.photos[idx]}`;
+  badge.textContent = `${idx + 1} of ${pInfo.photos.length}`;
+};
 
 </script>
 </body>
